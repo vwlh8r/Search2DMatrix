@@ -14,8 +14,8 @@ public class Solution {
 
         int column=0; int t = 0;
         try {
-            for (t = 0; t < matrix2D[0].length; t++) { //down traversal
-                if (matrix2D.length == 1){column = 1; t =1; break;}
+            for (t = 0; t < matrix2D[0].length+1; t++) { //down traversal
+                if ((matrix2D.length == 1)&&(matrix2D[0][0]==target)){column = 0; t =0; truth = true; break;}
                 if (matrix2D[t][0] >= target) {
                     t = t - 1;
                     t = ((t - 1)==0 ) ? 1 : 0;
@@ -31,7 +31,7 @@ public class Solution {
             t = ((t - 1) == -1) ? 1 : 0;
             column = t;
         }
-        if(no_result){ truth = false;}
+     //   if(no_result){ truth = false;}
         column = t;
         int y=0;
         try {
@@ -39,6 +39,7 @@ public class Solution {
                 if (matrix2D[column][y] == target) {
                     truth = true;
                 }
+                   truth=true;
             }
         } catch (ArrayIndexOutOfBoundsException f) {
             f.printStackTrace();
